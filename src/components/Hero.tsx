@@ -147,9 +147,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onToggleAiChat }) => 
               </div>
 
               {/* Direct Quick Info */}
-              <div className="pt-2 flex items-center justify-between text-xs text-slate-400 font-mono">
-                <span>{t.hero.location}</span>
-                <span className="text-cyan-400 font-semibold">{t.hero.languages}</span>
+              <div className="pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
+                <div className="flex items-center gap-1.5 text-slate-300 whitespace-nowrap">
+                  <span>{t.hero.location}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-cyan-400 font-semibold whitespace-nowrap">
+                  <span>{t.hero.languages}</span>
+                </div>
               </div>
 
             </div>

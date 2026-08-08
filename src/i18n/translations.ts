@@ -169,7 +169,7 @@ export const translations = {
       statAutomationDesc: "Reducción Trabajo Manual",
       guaranteeTitle: "Garantía de Valor Inmediata",
       guaranteeDesc: "Capacidad comprobada de integrarme desde el día 1 en equipos ágiles, reducir incidencias de código en un 30% y acelerar entregables con IA.",
-      location: "📍 Santo Domingo, DR",
+      location: "📍 Santo Domingo, RD",
       languages: "Español (Nativo) | Inglés (Profesional)"
     },
     roleMatcher: {
