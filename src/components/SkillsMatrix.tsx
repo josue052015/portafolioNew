@@ -24,7 +24,7 @@ export const SkillsMatrix: React.FC = () => {
           </p>
         </div>
 
-        {/* Special Spotlight: AI Engineering */}
+        {/* Special Spotlight: AI-Augmented Development */}
         <div className="glass-panel rounded-2xl p-6 sm:p-8 border border-violet-500/40 shadow-2xl mb-12 relative overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-violet-950/40">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-3 max-w-2xl">

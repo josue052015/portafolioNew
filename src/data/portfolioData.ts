@@ -30,7 +30,7 @@ export interface EducationExt extends Education {
 
 export const personalInfo = {
   name: "Pedro Rodriguez",
-  title: "Senior Software Engineer & AI Engineering Specialist",
+  title: "Senior Software Engineer",
   tagline: "Building High-Performance Full-Stack Systems with Angular, React, .NET Core & AI Automation",
   summary: "Software Engineer with 5+ years of experience building production web applications using Angular, React, TypeScript, JavaScript, C#, ASP.NET Core, .NET Core, ASP.NET MVC, and SQL. Proven track record of improving system performance by up to 40%, automating business-critical workflows, and integrating AI-assisted engineering tools (Google Antigravity, Cursor) to deliver scalable software 2-3x faster.",
   location: "Santo Domingo, Dominican Republic (Available Remote / Hybrid)",
@@ -109,8 +109,8 @@ export const recruiterRoles: RecruiterRoleExt[] = [
   },
   {
     id: "ai-lead",
-    title: "AI-Augmented Lead Engineer",
-    titleEn: "AI-Augmented Lead Engineer",
+    title: "Senior Full-Stack & Tech Lead",
+    titleEn: "Senior Full-Stack & Tech Lead",
     matchScore: 99,
     pitch: "Pioneer in adopting Google Antigravity, Cursor, and AI-assisted workflows to refactor legacy applications, generate robust test suites, and accelerate delivery timelines by 2x.",
     pitchEn: "Pioneer in adopting Google Antigravity, Cursor, and AI-assisted workflows to refactor legacy applications, generate robust test suites, and accelerate delivery timelines by 2x.",

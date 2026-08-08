@@ -13,7 +13,7 @@ export const translations = {
       statusBadge: "Available for Senior / Tech Lead Roles"
     },
     hero: {
-      pill: "Full-Stack Engineer & AI Automation Specialist",
+      pill: "Senior Full-Stack Software Engineer",
       titleStart: "Scalable, High-Speed &",
       titleGradient: "Intelligent Engineering",
       bioIntro: "I am",
@@ -143,7 +143,7 @@ export const translations = {
       statusBadge: "Disponible para Roles Senior / Tech Lead"
     },
     hero: {
-      pill: "Ingeniero Full-Stack y Especialista en Automatización con IA",
+      pill: "Ingeniero de Software Full-Stack Senior",
       titleStart: "Ingeniería de Software",
       titleGradient: "Escalable, Veloz e Inteligente",
       bioIntro: "Soy",
