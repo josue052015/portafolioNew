@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { useLanguage } from '../context/LanguageContext';
-import { Mail, Phone, Linkedin, Copy, Check, X, Send, Calendar, Download, Sparkles, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Copy, Check, X, Send, Calendar, Download, Sparkles, MapPin, Loader2 } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -24,6 +24,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, pre
           ? "Hello Pedro, I reviewed your portfolio and would like to discuss a professional opportunity."
           : "Hola Pedro, revisé tu portafolio y me gustaría conversar sobre una oportunidad profesional.")
   );
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   if (!isOpen) return null;
@@ -34,13 +35,37 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, pre
     setTimeout(() => setCopiedField(null), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      onClose();
-    }, 2500);
+    setIsSubmitting(true);
+
+    try {
+      await fetch("https://formsubmit.co/ajax/pe.rod.001@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: `📩 Oportunidad / Mensaje de ${senderName} (${senderCompany || 'Contacto General'})`,
+          _template: "table",
+          Nombre: senderName,
+          Empresa: senderCompany || "No especificada",
+          Email: senderEmail,
+          Mensaje: message
+        })
+      });
+    } catch (err) {
+      // Fallback open mailto if network blocked
+      window.location.href = `mailto:pe.rod.001@gmail.com?subject=${encodeURIComponent(`Oportunidad de ${senderName}`)}&body=${encodeURIComponent(`Nombre: ${senderName}\nEmpresa: ${senderCompany}\nEmail: ${senderEmail}\n\nMensaje:\n${message}`)}`;
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        onClose();
+      }, 3500);
+    }
   };
 
   return (
@@ -128,12 +153,16 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, pre
 
           {/* Direct Message Form */}
           {submitted ? (
-            <div className="p-8 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-center space-y-2">
-              <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+            <div className="p-8 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-center space-y-3">
+              <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/10">
                 <Check className="w-6 h-6" />
               </div>
               <h4 className="text-lg font-bold text-white">{t.contact.successTitle}</h4>
               <p className="text-xs text-slate-300">{t.contact.successDesc}</p>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-bold">
+                <Mail className="w-3.5 h-3.5" />
+                <span>pe.rod.001@gmail.com</span>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 bg-slate-950/70 p-5 rounded-xl border border-slate-800">
@@ -178,10 +207,20 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, pre
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-extrabold text-xs shadow-lg shadow-cyan-500/20 hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-extrabold text-xs shadow-lg shadow-cyan-500/20 hover:scale-[1.01] transition-all flex items-center justify-center gap-2 disabled:opacity-70"
               >
-                <Send className="w-4 h-4" />
-                <span>{t.contact.submitBtn}</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>{lang === 'en' ? 'Sending to pe.rod.001@gmail.com...' : 'Enviando a pe.rod.001@gmail.com...'}</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>{t.contact.submitBtn}</span>
+                  </>
+                )}
               </button>
             </form>
           )}
