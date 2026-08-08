@@ -25,9 +25,9 @@ export const Experience: React.FC = () => {
         </div>
 
         {/* Timeline Container */}
-        <div className="relative border-l border-slate-800 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
+        <div className="relative border-l-2 border-slate-800 ml-4 sm:ml-8 space-y-12">
           {experienceData.map((exp) => (
-            <div key={exp.id} className="relative group">
+            <div key={exp.id} className="relative group pl-6 sm:pl-10">
               
               {/* Timeline Node Icon - Perfectly centered on vertical border-l */}
               <div className="absolute -left-4 top-6 w-8 h-8 rounded-full bg-slate-950 border-2 border-cyan-500 flex items-center justify-center text-cyan-400 shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform">
