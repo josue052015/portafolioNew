@@ -1,7 +1,7 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { useLanguage } from '../context/LanguageContext';
-import { Sparkles, ArrowRight, Download, CheckCircle, CheckCircle2, Zap, Code2, Bot, Database, ShieldCheck } from 'lucide-react';
+import { Sparkles, ArrowRight, Download, CheckCircle, CheckCircle2, Zap, Code2, Bot, Database, ShieldCheck, MapPin, Globe } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface HeroProps {
@@ -10,7 +10,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenContact, onToggleAiChat }) => {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   const triggerConfetti = () => {
     confetti({
@@ -146,16 +146,33 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onToggleAiChat }) => 
                 </div>
               </div>
 
-              {/* Direct Quick Info */}
-              <div className="pt-3 border-t border-slate-800/80 space-y-2 text-xs font-mono">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-slate-500 font-semibold">{t.hero.locationLabel}:</span>
-                  <span className="text-slate-200 font-medium">{t.hero.location}</span>
+              {/* Direct Quick Info - Ultra Modern Micro Cards */}
+              <div className="pt-4 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                
+                {/* Location Micro Card */}
+                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/90 hover:border-slate-700 transition-colors shadow-inner">
+                  <div className="p-1.5 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/20 shrink-0">
+                    <MapPin className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[10px] uppercase tracking-wider text-slate-400 font-mono font-bold">{t.hero.locationLabel}</span>
+                    <span className="text-xs font-semibold text-slate-200 font-mono truncate">Santo Domingo, {lang === 'en' ? 'DR' : 'RD'}</span>
+                  </div>
                 </div>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-slate-500 font-semibold">{t.hero.languagesLabel}:</span>
-                  <span className="text-cyan-400 font-semibold">{t.hero.languages}</span>
+
+                {/* Languages Micro Card */}
+                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-cyan-950/30 border border-cyan-500/30 hover:border-cyan-500/50 transition-colors shadow-inner">
+                  <div className="p-1.5 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 shrink-0">
+                    <Globe className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[10px] uppercase tracking-wider text-cyan-400/90 font-mono font-bold">{t.hero.languagesLabel}</span>
+                    <span className="text-xs font-semibold text-cyan-200 font-mono truncate">
+                      {lang === 'en' ? 'ES (Native) | EN (Prof)' : 'ES (Nativo) | EN (Prof)'}
+                    </span>
+                  </div>
                 </div>
+
               </div>
 
             </div>
