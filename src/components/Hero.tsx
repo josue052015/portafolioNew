@@ -53,7 +53,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onToggleAiChat }) => 
 
             {/* Paragraph Bio */}
             <p className="text-lg text-slate-300 max-w-2xl leading-relaxed">
-              {t.hero.bioIntro} <strong className="text-white font-semibold">{t.hero.bioName}</strong>{t.hero.bioText} <strong className="text-cyan-400">{t.hero.bioYoe}</strong> {t.hero.bioText2} <strong className="text-slate-100">{t.hero.bioStack}</strong>{t.hero.bioText3} <span className="text-emerald-400 font-semibold">{t.hero.bioPerf}</span>{t.hero.bioText4}<strong className="text-violet-400">{t.hero.bioAiTools}</strong>{t.hero.bioText5}
+              {t.hero.bioIntro}{' '}
+              <strong className="text-white font-semibold">{t.hero.bioName}</strong>
+              {t.hero.bioText}{' '}
+              <strong className="text-cyan-400">{t.hero.bioYoe}</strong>{' '}
+              {t.hero.bioText2}{' '}
+              <strong className="text-slate-100">{t.hero.bioStack}</strong>
+              {t.hero.bioText3}{' '}
+              <span className="text-emerald-400 font-semibold">{t.hero.bioPerf}</span>{' '}
+              {t.hero.bioText4}
+              <strong className="text-violet-400">{t.hero.bioAiTools}</strong>
+              {t.hero.bioText5}
             </p>
 
             {/* Tech Stack Pills */}
