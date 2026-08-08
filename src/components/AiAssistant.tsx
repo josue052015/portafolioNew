@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { useLanguage } from '../context/LanguageContext';
 import { ChatMessage } from '../types';
-import { Sparkles, X, Send, Bot, User, CheckCircle2, Terminal } from 'lucide-react';
+import { Sparkles, X, Send, Bot, User, CheckCircle2, Terminal, Calendar } from 'lucide-react';
 
 interface AiAssistantProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenContact?: (roleTitle?: string) => void;
 }
 
-export const AiAssistant: React.FC<AiAssistantProps> = ({ isOpen, onClose }) => {
+export const AiAssistant: React.FC<AiAssistantProps> = ({ isOpen, onClose, onOpenContact }) => {
   const { lang, t } = useLanguage();
 
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -17,7 +18,8 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ isOpen, onClose }) => 
       id: "welcome",
       sender: "ai",
       text: t.aiAssistant.welcome,
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      hasScheduleAction: true
     }
   ]);
 
@@ -42,9 +44,17 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ isOpen, onClose }) => 
     // Simulate AI response logic
     setTimeout(() => {
       let replyText = "";
+      let hasAction = false;
       const lower = text.toLowerCase();
 
-      if (lang === 'en') {
+      const isScheduleQuery = lower.includes("schedule") || lower.includes("interview") || lower.includes("entrevista") || lower.includes("agendar") || lower.includes("meeting") || lower.includes("cita") || lower.includes("reunion") || lower.includes("llamada");
+
+      if (isScheduleQuery) {
+        hasAction = true;
+        replyText = lang === 'en'
+          ? `I would be delighted to help you schedule an interview with Pedro! Pedro has immediate availability for Senior / Tech Lead Full-Stack Engineer roles (Remote or Hybrid). Click below to launch the interview scheduler:`
+          : `¡Con gusto te ayudo a agendar una entrevista con Pedro! Pedro cuenta con disponibilidad inmediata para roles Senior / Tech Lead Full-Stack (Remoto o Híbrido). Haz clic abajo para abrir el formulario directo de agendamiento:`;
+      } else if (lang === 'en') {
         if (lower.includes("stack") || lower.includes("technology") || lower.includes("skills")) {
           replyText = `Pedro is a Senior Full-Stack Engineer with 5+ years of experience. His core tech stack includes Angular (10-17+), React 18, TypeScript, C# ASP.NET Core, .NET Core 3+, SQL Server, Node.js, and REST APIs. He is also a specialist in integrating AI engineering tools like Google Antigravity & Cursor.`;
         } else if (lower.includes("triplecyber") || lower.includes("achievement") || lower.includes("experience")) {
@@ -52,9 +62,10 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ isOpen, onClose }) => 
         } else if (lower.includes("ai") || lower.includes("antigravity") || lower.includes("cursor")) {
           replyText = `Pedro uses Google Antigravity and Cursor IDE as daily drivers to accelerate code refactoring, automated unit test generation, and bug fixing. This allows him to deliver agile tasks 2-3x faster while adhering to enterprise architecture standards.`;
         } else if (lower.includes("contact") || lower.includes("email") || lower.includes("phone")) {
-          replyText = `You can reach Pedro directly via Email: pe.rod.001@gmail.com, Phone/WhatsApp: +1 (829) 804-9502, or LinkedIn: linkedin.com/in/pedro-rodriguez-1b557b1b9. Would you like to schedule an interview?`;
+          hasAction = true;
+          replyText = `You can reach Pedro directly via Email: pe.rod.001@gmail.com, Phone/WhatsApp: +1 (829) 804-9502, or LinkedIn: linkedin.com/in/pedro-rodriguez-1b557b1b9. Click below to schedule a meeting directly:`;
         } else {
-          replyText = `Pedro Rodriguez is a Systems and Computing Engineer from Universidad O&M with 5+ years leading Full-Stack web development. He has automated over 60% of manual operations in hospitality projects and managed over 1,000 security access records. Would you like to explore his case studies?`;
+          replyText = `Pedro Rodriguez is a Systems and Computing Engineer from Universidad O&M with 5+ years leading Full-Stack web development. He has automated over 60% of manual operations in hospitality projects and managed over 1,000 security access records. Would you like to schedule an interview with him?`;
         }
       } else {
         if (lower.includes("stack") || lower.includes("tecnologia") || lower.includes("habilidades")) {
@@ -64,9 +75,10 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ isOpen, onClose }) => 
         } else if (lower.includes("ia") || lower.includes("antigravity") || lower.includes("cursor")) {
           replyText = `Pedro utiliza Google Antigravity y Cursor IDE como herramientas diarias para acelerar la refactorización de código, generación de pruebas unitarias y depuración de software. Esto le permite entregar tareas ágiles 2-3x más rápido manteniendo los estándares de arquitectura.`;
         } else if (lower.includes("contacto") || lower.includes("email") || lower.includes("telefono")) {
-          replyText = `Puedes contactar a Pedro directamente vía Email: pe.rod.001@gmail.com, Teléfono: +1 (829) 804-9502, o LinkedIn: linkedin.com/in/pedro-rodriguez-1b557b1b9. ¿Te gustaría que preparemos un mensaje de propuesta?`;
+          hasAction = true;
+          replyText = `Puedes contactar a Pedro directamente vía Email: pe.rod.001@gmail.com, Teléfono: +1 (829) 804-9502, o LinkedIn: linkedin.com/in/pedro-rodriguez-1b557b1b9. Haz clic abajo para coordinar una entrevista:`;
         } else {
-          replyText = `Pedro Rodriguez es un Ingeniero de Sistemas graduado de la Universidad O&M, con 5+ años liderando desarrollo web Full-Stack. Ha automatizado más del 60% de cargas operativas manuales en proyectos de hospitalidad y gestionado más de 1,000 registros en sistemas de seguridad. ¿Deseas saber más sobre sus proyectos?`;
+          replyText = `Pedro Rodriguez es un Ingeniero de Sistemas graduado de la Universidad O&M, con 5+ años liderando desarrollo web Full-Stack. Ha automatizado más del 60% de cargas operativas manuales en proyectos de hospitalidad y gestionado más de 1,000 registros en sistemas de seguridad. ¿Te gustaría coordinar una entrevista?`;
         }
       }
 
@@ -74,7 +86,8 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ isOpen, onClose }) => 
         id: (Date.now() + 1).toString(),
         sender: "ai",
         text: replyText,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        hasScheduleAction: hasAction
       };
 
       setMessages(prev => [...prev, aiMsg]);
@@ -126,7 +139,23 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ isOpen, onClose }) => 
                 ? 'bg-cyan-500/20 text-cyan-100 border border-cyan-500/30 rounded-tr-none'
                 : 'bg-slate-900 text-slate-200 border border-slate-800 rounded-tl-none'
             }`}>
-              {m.text}
+              <div>{m.text}</div>
+              
+              {m.hasScheduleAction && (
+                <div className="mt-2.5 pt-2.5 border-t border-slate-800">
+                  <button
+                    onClick={() => {
+                      onClose();
+                      onOpenContact?.("Senior Full-Stack Engineer Candidate");
+                    }}
+                    className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-extrabold text-xs flex items-center justify-center gap-2 transition-all shadow-md shadow-cyan-500/20"
+                  >
+                    <Calendar className="w-4 h-4 text-slate-950" />
+                    <span>{lang === 'en' ? '📅 Schedule Interview with Pedro' : '📅 Agendar Entrevista con Pedro'}</span>
+                  </button>
+                </div>
+              )}
+
               <div className="text-[9px] text-slate-500 mt-1 text-right font-mono">{m.timestamp}</div>
             </div>
           </div>

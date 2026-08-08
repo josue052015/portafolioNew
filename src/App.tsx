@@ -79,6 +79,10 @@ export function PortfolioContent() {
       <AiAssistant
         isOpen={aiChatOpen}
         onClose={() => setAiChatOpen(false)}
+        onOpenContact={(roleTitle) => {
+          setSelectedRoleTitle(roleTitle);
+          setContactOpen(true);
+        }}
       />
 
       {/* Contact & Schedule Modal */}

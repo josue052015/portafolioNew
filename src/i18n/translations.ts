@@ -106,6 +106,7 @@ export const translations = {
       placeholder: "Ask anything about Pedro...",
       generating: "Generating response...",
       prompts: [
+        "📅 Schedule an interview",
         "What is Pedro's core tech stack?",
         "What impact did he achieve at TripleCyber?",
         "How does he leverage AI (Antigravity & Cursor)?",
@@ -235,6 +236,7 @@ export const translations = {
       placeholder: "Pregunta sobre Pedro...",
       generating: "Generando respuesta...",
       prompts: [
+        "📅 Agendar una entrevista",
         "¿Cuál es el stack principal de Pedro?",
         "¿Qué impacto logró en TripleCyber?",
         "¿Cómo aplica IA (Antigravity & Cursor)?",

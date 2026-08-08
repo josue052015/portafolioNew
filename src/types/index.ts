@@ -56,4 +56,5 @@ export interface ChatMessage {
   sender: 'user' | 'ai';
   text: string;
   timestamp: string;
+  hasScheduleAction?: boolean;
 }
