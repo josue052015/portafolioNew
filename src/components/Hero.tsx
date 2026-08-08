@@ -167,8 +167,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onToggleAiChat }) => 
                   </div>
                   <div className="flex flex-col min-w-0">
                     <span className="text-[10px] uppercase tracking-wider text-cyan-400/90 font-mono font-bold">{t.hero.languagesLabel}</span>
-                    <span className="text-xs font-semibold text-cyan-200 font-mono truncate">
-                      {lang === 'en' ? 'ES (Native) | EN (Prof)' : 'ES (Nativo) | EN (Prof)'}
+                    <span className="text-xs font-extrabold text-cyan-300 font-mono tracking-wider">
+                      ES | EN
                     </span>
                   </div>
                 </div>
