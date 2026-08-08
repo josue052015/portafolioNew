@@ -42,7 +42,9 @@ export const translations = {
       statAutomationDesc: "Manual Workload Automation",
       guaranteeTitle: "Immediate Value Guarantee",
       guaranteeDesc: "Proven track record of integrating from Day 1 in agile teams, reducing code review issues by 30%, and accelerating delivery with AI tools.",
+      locationLabel: "Location",
       location: "📍 Santo Domingo, DR",
+      languagesLabel: "Languages",
       languages: "Spanish (Native) | English (Professional)"
     },
     roleMatcher: {
@@ -169,7 +171,9 @@ export const translations = {
       statAutomationDesc: "Reducción Trabajo Manual",
       guaranteeTitle: "Garantía de Valor Inmediata",
       guaranteeDesc: "Capacidad comprobada de integrarme desde el día 1 en equipos ágiles, reducir incidencias de código en un 30% y acelerar entregables con IA.",
+      locationLabel: "Ubicación",
       location: "📍 Santo Domingo, RD",
+      languagesLabel: "Idiomas",
       languages: "Español (Nativo) | Inglés (Profesional)"
     },
     roleMatcher: {
