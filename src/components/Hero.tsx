@@ -85,13 +85,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onToggleAiChat }) => 
                 <span>{t.hero.btnAiChat}</span>
               </button>
 
-              <button
-                onClick={onOpenContact}
+              <a
+                href="/pedro-rodriguez-cv.pdf"
+                download="pedro-rodriguez-cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-5 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm flex items-center gap-2 hover:scale-105 transition-all"
               >
                 <Download className="w-4 h-4 text-cyan-400" />
                 <span>{t.hero.btnContact}</span>
-              </button>
+              </a>
             </div>
 
           </div>

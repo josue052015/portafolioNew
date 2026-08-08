@@ -233,13 +233,16 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, pre
             <MapPin className="w-3.5 h-3.5 text-cyan-400" />
             Dominican Republic (GMT-4)
           </span>
-          <button
-            onClick={() => window.print()}
-            className="text-cyan-400 hover:underline flex items-center gap-1 font-semibold"
+          <a
+            href="/pedro-rodriguez-cv.pdf"
+            download="pedro-rodriguez-cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 hover:underline flex items-center gap-1 font-semibold cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>{t.contact.printCv}</span>
-          </button>
+          </a>
         </div>
 
       </div>
