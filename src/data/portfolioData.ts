@@ -109,8 +109,8 @@ export const recruiterRoles: RecruiterRoleExt[] = [
   },
   {
     id: "ai-lead",
-    title: "Senior Full-Stack & Tech Lead",
-    titleEn: "Senior Full-Stack & Tech Lead",
+    title: "AI-Augmented Lead Engineer",
+    titleEn: "AI-Augmented Lead Engineer",
     matchScore: 99,
     pitch: "Pioneer in adopting Google Antigravity, Cursor, and AI-assisted workflows to refactor legacy applications, generate robust test suites, and accelerate delivery timelines by 2x.",
     pitchEn: "Pioneer in adopting Google Antigravity, Cursor, and AI-assisted workflows to refactor legacy applications, generate robust test suites, and accelerate delivery timelines by 2x.",
