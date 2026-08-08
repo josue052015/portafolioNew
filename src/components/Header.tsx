@@ -30,9 +30,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact, onToggleAiChat })
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-      scrolled ? 'bg-slate-950/85 backdrop-blur-md border-b border-slate-800/60 py-3' : 'bg-transparent py-5'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'bg-slate-950/85 backdrop-blur-md border-b border-slate-800/60 py-3' : 'bg-transparent py-5'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <a href="#" className="flex items-center gap-3 group">
@@ -48,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact, onToggleAiChat })
             </div>
             <div className="text-xs text-slate-400 font-mono flex items-center gap-1">
               <Terminal className="w-3 h-3 text-cyan-400" />
-              <span>Full-Stack & AI Engineer</span>
+              <span>Full-Stack Engineer</span>
             </div>
           </div>
         </a>
@@ -74,18 +73,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact, onToggleAiChat })
           <div className="flex items-center p-1 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs shrink-0">
             <button
               onClick={() => setLang('en')}
-              className={`px-2 py-1 rounded-lg transition-all font-bold flex items-center gap-1 ${
-                lang === 'en' ? 'bg-cyan-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
-              }`}
+              className={`px-2 py-1 rounded-lg transition-all font-bold flex items-center gap-1 ${lang === 'en' ? 'bg-cyan-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
+                }`}
             >
               <span>🇺🇸</span>
               <span>EN</span>
             </button>
             <button
               onClick={() => setLang('es')}
-              className={`px-2 py-1 rounded-lg transition-all font-bold flex items-center gap-1 ${
-                lang === 'es' ? 'bg-cyan-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
-              }`}
+              className={`px-2 py-1 rounded-lg transition-all font-bold flex items-center gap-1 ${lang === 'es' ? 'bg-cyan-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
+                }`}
             >
               <span>🇪🇸</span>
               <span>ES</span>

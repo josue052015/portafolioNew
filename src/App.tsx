@@ -23,7 +23,7 @@ export function PortfolioContent() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-slate-950 relative">
-      
+
       {/* Header Bar */}
       <Header
         onOpenContact={() => { setSelectedRoleTitle(undefined); setContactOpen(true); }}
@@ -36,7 +36,7 @@ export function PortfolioContent() {
           onOpenContact={() => { setSelectedRoleTitle(undefined); setContactOpen(true); }}
           onToggleAiChat={() => setAiChatOpen(true)}
         />
-        
+
         <RoleMatcher
           onSelectRoleForContact={handleOpenContactWithRole}
         />
@@ -56,7 +56,7 @@ export function PortfolioContent() {
           <div className="flex items-center gap-2">
             <span className="font-heading font-extrabold text-white text-base">Pedro Rodriguez</span>
             <span className="text-slate-600">|</span>
-            <span className="font-mono text-cyan-400">Senior Full-Stack & AI Engineer</span>
+            <span className="font-mono text-cyan-400">Senior Full-Stack Engineer</span>
           </div>
 
           <div className="flex items-center gap-4 text-slate-400">
@@ -70,7 +70,7 @@ export function PortfolioContent() {
           </div>
 
           <div className="font-mono text-slate-500 text-[11px] flex items-center gap-1">
-            <span>Built with React, TypeScript & Google Antigravity</span>
+            <span>Built with React & TypeScript</span>
           </div>
         </div>
       </footer>
