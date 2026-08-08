@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { RoleMatcher } from './components/RoleMatcher';
@@ -12,6 +12,7 @@ import { ContactModal } from './components/ContactModal';
 import { personalInfo } from './data/portfolioData';
 
 export function PortfolioContent() {
+  const { lang } = useLanguage();
   const [contactOpen, setContactOpen] = useState(false);
   const [aiChatOpen, setAiChatOpen] = useState(false);
   const [selectedRoleTitle, setSelectedRoleTitle] = useState<string | undefined>(undefined);
@@ -70,7 +71,7 @@ export function PortfolioContent() {
           </div>
 
           <div className="font-mono text-slate-500 text-[11px] flex items-center gap-1">
-            <span>Built with React & TypeScript</span>
+            <span>{lang === 'en' ? 'Built with React & TypeScript' : 'Desarrollado con React y TypeScript'}</span>
           </div>
         </div>
       </footer>

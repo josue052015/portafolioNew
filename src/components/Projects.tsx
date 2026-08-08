@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { projectsData } from '../data/portfolioData';
+import { projectsData, ProjectExt } from '../data/portfolioData';
 import { Project } from '../types';
 import { ProjectModal } from './ProjectModal';
 import { useLanguage } from '../context/LanguageContext';
@@ -53,20 +53,22 @@ export const Projects: React.FC = () => {
 
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between border border-slate-800 relative group overflow-hidden"
-            >
+          {filteredProjects.map((project) => {
+            const projectExt = project as ProjectExt;
+            return (
+              <div
+                key={project.id}
+                className="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between border border-slate-800 relative group overflow-hidden"
+              >
               <div className="space-y-4">
                 
                 {/* Header Tag */}
                 <div className="flex items-center justify-between">
                   <span className="px-2.5 py-1 rounded-md bg-cyan-950/80 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-semibold">
-                    {project.category}
+                    {t.projects.categories[project.category as keyof typeof t.projects.categories] || project.category}
                   </span>
                   <span className="text-xs text-slate-400 font-mono">
-                    {lang === 'en' ? project.roleEn : project.role}
+                    {lang === 'en' ? projectExt.roleEn : project.role}
                   </span>
                 </div>
 
@@ -75,7 +77,9 @@ export const Projects: React.FC = () => {
                   <h3 className="text-2xl font-bold text-white font-heading group-hover:text-cyan-300 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1 font-mono">{project.subtitle}</p>
+                  <p className="text-xs text-slate-400 mt-1 font-mono">
+                    {lang === 'en' ? (projectExt.subtitleEn || project.subtitle) : project.subtitle}
+                  </p>
                 </div>
 
                 {/* Summary */}
@@ -117,7 +121,8 @@ export const Projects: React.FC = () => {
               </div> */}
 
             </div>
-          ))}
+          );
+        })}
         </div>
 
         {/* Modal Render */}

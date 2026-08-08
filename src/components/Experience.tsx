@@ -26,38 +26,40 @@ export const Experience: React.FC = () => {
 
         {/* Timeline Container */}
         <div className="relative border-l-2 border-slate-800 ml-4 sm:ml-8 space-y-12">
-          {experienceData.map((exp) => (
-            <div key={exp.id} className="relative group pl-6 sm:pl-10">
-              
-              {/* Timeline Node Icon - Perfectly centered on vertical border-l */}
-              <div className="absolute -left-4 top-6 w-8 h-8 rounded-full bg-slate-950 border-2 border-cyan-500 flex items-center justify-center text-cyan-400 shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform">
-                <Briefcase className="w-4 h-4" />
-              </div>
-
-              {/* Card Content */}
-              <div className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 space-y-6 border border-slate-800">
+          {experienceData.map((exp) => {
+            const expExt = exp as any;
+            return (
+              <div key={exp.id} className="relative group pl-6 sm:pl-10">
                 
-                {/* Header Details */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white font-heading">
-                      {lang === 'en' ? exp.roleEn : exp.role}
-                    </h3>
-                    <div className="text-lg font-semibold text-cyan-400 flex items-center gap-2">
-                      <span>{exp.company}</span>
+                {/* Timeline Node Icon - Perfectly centered on vertical border-l */}
+                <div className="absolute -left-4 top-6 w-8 h-8 rounded-full bg-slate-950 border-2 border-cyan-500 flex items-center justify-center text-cyan-400 shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform">
+                  <Briefcase className="w-4 h-4" />
+                </div>
+
+                {/* Card Content */}
+                <div className="glass-panel glass-panel-hover rounded-2xl p-6 sm:p-8 space-y-6 border border-slate-800">
+                  
+                  {/* Header Details */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white font-heading">
+                        {lang === 'en' ? exp.roleEn : exp.role}
+                      </h3>
+                      <div className="text-lg font-semibold text-cyan-400 flex items-center gap-2">
+                        <span>{lang === 'en' ? (expExt.companyEn || exp.company) : exp.company}</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 font-mono">
+                      <span className="flex items-center gap-1 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">
+                        <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                        {exp.period}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5 text-slate-500" />
+                        {lang === 'en' ? expExt.locationEn || exp.location : exp.location}
+                      </span>
                     </div>
                   </div>
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400 font-mono">
-                    <span className="flex items-center gap-1 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">
-                      <Calendar className="w-3.5 h-3.5 text-cyan-400" />
-                      {exp.period}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-slate-500" />
-                      {exp.location}
-                    </span>
-                  </div>
-                </div>
 
                 {/* Key Metrics Banner */}
                 <div className="p-3.5 rounded-xl bg-cyan-950/40 border border-cyan-500/30 flex items-center gap-3">
@@ -90,7 +92,8 @@ export const Experience: React.FC = () => {
               </div>
 
             </div>
-          ))}
+          );
+        })}
         </div>
 
       </div>

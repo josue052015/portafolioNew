@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact, onToggleAiChat })
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'bg-slate-950/85 backdrop-blur-md border-b border-slate-800/60 py-3' : 'bg-transparent py-5'
+    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'bg-slate-950/85 backdrop-blur-md border-b border-slate-800/60 py-3' : 'bg-transparent border-b border-transparent py-5'
       }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}

@@ -7,13 +7,16 @@ export interface RecruiterRoleExt extends RecruiterRole {
 }
 
 export interface ProjectExt extends Project {
+  subtitleEn: string;
   summaryEn: string;
   impactMetricsEn: string[];
   roleEn: string;
 }
 
 export interface WorkExperienceExt extends WorkExperience {
+  companyEn?: string;
   roleEn: string;
+  locationEn: string;
   metricsEn: string;
   bulletsEn: string[];
 }
@@ -49,10 +52,10 @@ export const personalInfo = {
 export const recruiterRoles: RecruiterRoleExt[] = [
   {
     id: "fullstack",
-    title: "Senior Full-Stack Developer (.NET + React/Angular)",
+    title: "Desarrollador Senior Full-Stack (.NET + React/Angular)",
     titleEn: "Senior Full-Stack Developer (.NET + React/Angular)",
     matchScore: 98,
-    pitch: "Complete end-to-end fullstack engineer proficient in modern SPAs (Angular/React) and robust backends (C# ASP.NET Core, SQL). Delivered 30+ enterprise modules and CRM integrations.",
+    pitch: "Ingeniero Full-Stack completo con dominio en SPAs modernas (Angular/React) y backends robustos (C# ASP.NET Core, SQL). Ha entregado 30+ módulos empresariales e integraciones CRM.",
     pitchEn: "Complete end-to-end fullstack engineer proficient in modern SPAs (Angular/React) and robust backends (C# ASP.NET Core, SQL). Delivered 30+ enterprise modules and CRM integrations.",
     highlightedSkills: ["Angular", "React", "C# ASP.NET Core", "TypeScript", "SQL Optimization", "REST APIs"],
     relevantMetrics: [
@@ -69,10 +72,10 @@ export const recruiterRoles: RecruiterRoleExt[] = [
   },
   {
     id: "frontend",
-    title: "Senior Frontend Architect / Engineer",
+    title: "Arquitecto / Desarrollador Frontend Senior",
     titleEn: "Senior Frontend Architect / Engineer",
     matchScore: 96,
-    pitch: "Specialist in building complex business SPA applications, state management, custom UI components, and high-speed web rendering using Angular, React, and TypeScript.",
+    pitch: "Especialista en desarrollo de aplicaciones web SPA complejas de negocio, gestión de estado, componentes UI personalizados y renderizado web de alta velocidad utilizando Angular, React y TypeScript.",
     pitchEn: "Specialist in building complex business SPA applications, state management, custom UI components, and high-speed web rendering using Angular, React, and TypeScript.",
     highlightedSkills: ["Angular 17+", "React 18", "TypeScript", "SPA Architecture", "CSS3 / Micro-animations", "RxJS / State"],
     relevantMetrics: [
@@ -89,10 +92,10 @@ export const recruiterRoles: RecruiterRoleExt[] = [
   },
   {
     id: "backend",
-    title: "Backend & Database Engineer (.NET Core / SQL)",
+    title: "Ingeniero Backend y Base de Datos (.NET Core / SQL)",
     titleEn: "Backend & Database Engineer (.NET Core / SQL)",
     matchScore: 94,
-    pitch: "Expert in SQL query optimization, data access patterns, RESTful API design, C# .NET Core microservices, and CRM synchronization platforms.",
+    pitch: "Experto en optimización de consultas SQL, patrones de acceso a datos, diseño de REST APIs, microservicios C# .NET Core y plataformas de sincronización CRM.",
     pitchEn: "Expert in SQL query optimization, data access patterns, RESTful API design, C# .NET Core microservices, and CRM synchronization platforms.",
     highlightedSkills: ["C#", "ASP.NET Core", "SQL Server / Query Optimization", "MS Dynamics CRM Integration", "RESTful Architecture"],
     relevantMetrics: [
@@ -109,10 +112,10 @@ export const recruiterRoles: RecruiterRoleExt[] = [
   },
   {
     id: "ai-lead",
-    title: "AI-Augmented Lead Engineer",
+    title: "Ingeniero Líder Potenciado por IA",
     titleEn: "AI-Augmented Lead Engineer",
     matchScore: 99,
-    pitch: "Pioneer in adopting Google Antigravity, Cursor, and AI-assisted workflows to refactor legacy applications, generate robust test suites, and accelerate delivery timelines by 2x.",
+    pitch: "Pionero en la adopción de Google Antigravity, Cursor IDE y flujos asistidos por IA para refactorizar aplicaciones legadas, generar suites de prueba robustas y acelerar tiempos de entrega de 2 a 3 veces.",
     pitchEn: "Pioneer in adopting Google Antigravity, Cursor, and AI-assisted workflows to refactor legacy applications, generate robust test suites, and accelerate delivery timelines by 2x.",
     highlightedSkills: ["Google Antigravity", "Cursor IDE", "AI Code Generation", "Prompt Engineering", "Legacy System Modernization"],
     relevantMetrics: [
@@ -133,11 +136,12 @@ export const projectsData: ProjectExt[] = [
   {
     id: "ar-management",
     title: "AR Management System",
-    subtitle: "Enterprise Hotel Operations & Automated Payroll Platform",
+    subtitle: "Plataforma Empresarial de Operaciones Hoteleras y Nóminas Automatizadas",
+    subtitleEn: "Enterprise Hotel Operations & Automated Payroll Platform",
     category: "Enterprise",
-    role: "Lead Full-Stack Developer",
+    role: "Líder Full-Stack",
     roleEn: "Lead Full-Stack Developer",
-    summary: "Web-based management system designed for hotel sales, reservations, structured discounts, commission calculation, and payroll reporting. Automated 6+ operational workflows and cut manual workload by 60%.",
+    summary: "Sistema de gestión web diseñado para ventas hoteleras, reservas, descuentos estructurados, cálculo de comisiones y reportes de nómina. Automatizó 6+ flujos operativos y redujo la carga manual en un 60%.",
     summaryEn: "Web-based management system designed for hotel sales, reservations, structured discounts, commission calculation, and payroll reporting. Automated 6+ operational workflows and cut manual workload by 60%.",
     impactMetrics: [
       "Redujo el trabajo manual de cálculo de comisiones en ~60%",
@@ -156,11 +160,12 @@ export const projectsData: ProjectExt[] = [
   {
     id: "visit-app",
     title: "Visit App",
-    subtitle: "Multi-Residential Visitor Access & Security Platform",
+    subtitle: "Plataforma de Seguridad y Control de Accesos Residenciales",
+    subtitleEn: "Multi-Residential Visitor Access & Security Platform",
     category: "Security & IoT",
-    role: "Full-Stack Software Engineer",
+    role: "Ingeniero Full-Stack",
     roleEn: "Full-Stack Software Engineer",
-    summary: "Centralized visitor access control platform engineered for multiple residential complexes. Handles instant resident requests, real-time security guard approvals, visitor check-in/out tracking, and visitor analytics.",
+    summary: "Plataforma de control de acceso centralizada para complejos residenciales. Permite solicitudes instantáneas de residentes, aprobaciones de garita en tiempo real, seguimiento de entradas/salidas y métricas de visitantes.",
     summaryEn: "Centralized visitor access control platform engineered for multiple residential complexes. Handles instant resident requests, real-time security guard approvals, visitor check-in/out tracking, and visitor analytics.",
     impactMetrics: [
       "Centralizó 1,000+ registros de visitantes con datos estructurados",
@@ -179,11 +184,12 @@ export const projectsData: ProjectExt[] = [
   {
     id: "domains-app",
     title: "Domains App",
-    subtitle: "Domain Registration, DNS Inspector & Marketplace Platform",
+    subtitle: "Plataforma de Registro de Dominios, Inspección DNS y Mercado",
+    subtitleEn: "Domain Registration, DNS Inspector & Marketplace Platform",
     category: "Domain & Infrastructure",
-    role: "Full-Stack Engineer",
+    role: "Ingeniero Full-Stack",
     roleEn: "Full-Stack Engineer",
-    summary: "Cloud platform supporting domain search, instant registration, DNS record management (A, CNAME, MX, TXT), ownership transfer, and an interactive domain marketplace supporting over 100+ active domains.",
+    summary: "Plataforma cloud para búsqueda y registro instantáneo de dominios, gestión de registros DNS (A, CNAME, MX, TXT), transferencia de propiedad y un mercado interactivo con más de 100+ dominios activos.",
     summaryEn: "Cloud platform supporting domain search, instant registration, DNS record management (A, CNAME, MX, TXT), ownership transfer, and an interactive domain marketplace supporting over 100+ active domains.",
     impactMetrics: [
       "Soportó 100+ registros de dominios activos con propagación instantánea",
@@ -205,11 +211,13 @@ export const experienceData: WorkExperienceExt[] = [
   {
     id: "triplecyber",
     company: "TripleCyber Corporation",
-    role: "Software Engineer",
+    companyEn: "TripleCyber Corporation",
+    role: "Ingeniero de Software",
     roleEn: "Software Engineer",
-    location: "Dominican Republic / Remote",
+    location: "República Dominicana / Remoto",
+    locationEn: "Dominican Republic / Remote",
     period: "2022 – Present",
-    metrics: "12+ Enterprise Modules | +25-35% Workflow Performance | Mentored 2-3 Juniors",
+    metrics: "12+ Módulos Empresariales | +25-35% Rendimiento en Flujos | Mentoría a 2-3 Juniors",
     metricsEn: "12+ Enterprise Modules | +25-35% Workflow Performance | Mentored 2-3 Juniors",
     bullets: [
       "Desarrolló y desplegó 12+ módulos web críticos para el negocio utilizando Angular, React, ASP.NET Core, C#, TypeScript y SQL.",
@@ -228,11 +236,13 @@ export const experienceData: WorkExperienceExt[] = [
   {
     id: "solvex",
     company: "Solvex Dominicana",
-    role: "Software Developer",
+    companyEn: "Solvex Dominicana",
+    role: "Desarrollador de Software",
     roleEn: "Software Developer",
-    location: "Santo Domingo, DR",
+    location: "Santo Domingo, RD",
+    locationEn: "Santo Domingo, DR",
     period: "2021 – 2022",
-    metrics: "+30-40% Query Retrieval Performance | 8+ Production Features | MS Dynamics CRM",
+    metrics: "+30-40% Velocidad en Consultas SQL | 8+ Funcionalidades en Producción | MS Dynamics CRM",
     metricsEn: "+30-40% Query Retrieval Performance | 8+ Production Features | MS Dynamics CRM",
     bullets: [
       "Optimizó consultas SQL y patrones de acceso a datos, mejorando el rendimiento de recuperación entre un 30% y 40%.",
@@ -250,12 +260,14 @@ export const experienceData: WorkExperienceExt[] = [
   },
   {
     id: "freelance",
-    company: "Freelance / Software Consultant",
-    role: "Software Developer",
+    company: "Freelance / Consultor de Software",
+    companyEn: "Freelance / Software Consultant",
+    role: "Desarrollador de Software",
     roleEn: "Software Developer",
-    location: "Dominican Republic",
+    location: "República Dominicana",
+    locationEn: "Dominican Republic",
     period: "2019 – 2021",
-    metrics: "10+ Custom Web Applications | 90%+ On-Time Delivery | Custom WordPress & Plugins",
+    metrics: "10+ Aplicaciones Web a Medida | >90% Entrega a Tiempo | Plugins y Temas WordPress",
     metricsEn: "10+ Custom Web Applications | 90%+ On-Time Delivery | Custom WordPress & Plugins",
     bullets: [
       "Entregó 10+ proyectos web personalizados para clientes utilizando React, Angular, ASP.NET Core, C#, JavaScript y SQL.",

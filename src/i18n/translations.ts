@@ -30,7 +30,7 @@ export const translations = {
       btnRoleMatcher: "Evaluate Fit for Your Role",
       btnAiChat: "Talk with my AI Twin",
       btnContact: "Download CV",
-      statsHeader: "pedro_metrics_dashboard.v2",
+      statsHeader: "pedro_dashboard.v2",
       statsVerified: "VERIFIED IMPACT",
       statYoe: "5+ Years",
       statYoeDesc: "Proven Full-Stack Experience",
@@ -160,7 +160,7 @@ export const translations = {
       btnRoleMatcher: "Evaluar Ajuste a tu Vacante",
       btnAiChat: "Hablar con mi Asistente IA",
       btnContact: "Descargar CV",
-      statsHeader: "pedro_metrics_dashboard.v2",
+      statsHeader: "pedro_dashboard.v2",
       statsVerified: "IMPACTO VERIFICADO",
       statYoe: "5+ Años",
       statYoeDesc: "Experiencia Comprobada Full-Stack",
@@ -198,8 +198,8 @@ export const translations = {
       categories: {
         TODOS: "TODOS",
         Enterprise: "Empresarial",
-        "Security & IoT": "Seguridad e IoT",
-        "Domain & Infrastructure": "Dominios e Infraestructura"
+        "Security & IoT": "Seguridad / IoT",
+        "Domain & Infrastructure": "Dominios / Infra"
       },
       btnTryDemo: "Probar Demostrador Interactivo",
       closeDemo: "Cerrar Simulación"

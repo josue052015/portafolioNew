@@ -43,11 +43,11 @@ export const SkillsMatrix: React.FC = () => {
             <div className="flex flex-wrap md:flex-col gap-3 shrink-0">
               <div className="px-4 py-2 rounded-xl bg-slate-900 border border-violet-500/40 flex items-center gap-2 text-xs font-mono text-violet-300">
                 <Sparkles className="w-4 h-4 text-violet-400" />
-                <span>Google Antigravity Power User</span>
+                <span>{lang === 'en' ? 'Google Antigravity Power User' : 'Usuario Experto de Google Antigravity'}</span>
               </div>
               <div className="px-4 py-2 rounded-xl bg-slate-900 border border-cyan-500/40 flex items-center gap-2 text-xs font-mono text-cyan-300">
                 <Zap className="w-4 h-4 text-cyan-400" />
-                <span>Cursor IDE Workflow Master</span>
+                <span>{lang === 'en' ? 'Cursor IDE Workflow Master' : 'Dominio Avanzado de Cursor IDE'}</span>
               </div>
             </div>
           </div>

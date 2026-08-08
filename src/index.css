@@ -19,9 +19,14 @@
   --primary-blue: #3b82f6;
 }
 
+html {
+  background-color: #07090e;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-dark);
+  background-color: #07090e;
   color: #f8fafc;
   overflow-x: hidden;
 }
