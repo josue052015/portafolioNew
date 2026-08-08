@@ -104,8 +104,8 @@ export const Projects: React.FC = () => {
 
               </div>
 
-              {/* Action Button */}
-              <div className="pt-6">
+              {/* Action Button - Hidden per user request */}
+              {/* <div className="pt-6">
                 <button
                   onClick={() => setSelectedProject(project)}
                   className="w-full py-3 rounded-xl bg-gradient-to-r from-violet-600/30 to-cyan-600/30 hover:from-violet-600/50 hover:to-cyan-600/50 border border-cyan-500/40 text-cyan-200 font-bold text-xs flex items-center justify-center gap-2 group/btn transition-all shadow-md"
@@ -114,7 +114,7 @@ export const Projects: React.FC = () => {
                   <span>{t.projects.btnTryDemo}</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
-              </div>
+              </div> */}
 
             </div>
           ))}
